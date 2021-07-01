@@ -25,7 +25,12 @@ class BaseMessageComponent {
                 break;
             }
             default:
-                throw new SyntaxError('INVALID_TYPE: Invalid MessageComponentType');
+                if (data.type == 3) {
+                    console.log("Select Menus issue");
+                    return;
+                }
+                console.log("DATA ERROR", data);
+                throw new TypeError('INVALID_TYPE: valid MessageComponentType');
         }
         return component;
     }
